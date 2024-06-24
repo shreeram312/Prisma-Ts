@@ -10,5 +10,22 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("")
+  url      = env("DATABASE_URL")
+}
+
+model UserInfo{
+  id Int @id @default(autoincrement())
+  email String @unique
+  password String
+  firstName String?
+  lastName String?  
+}
+
+
+model Todo{
+  id Int @id @default(autoincrement())
+  title String
+  description String?
+  done Boolean @default(false)
+  userId Int
 }
