@@ -28,4 +28,31 @@ async function insertUser(
   }
 }
 
-insertUser("goodboy@gmail.com", "123ddhb", "good", "mutukundu");
+// insertUser("goodboy@gmail.com", "123ddhb", "good", "mutukundu");
+
+interface UpdateParams {
+  username: string;
+}
+
+async function updateUser(id: number, { username }: UpdateParams) {
+  try {
+    const res = await prisma.userInfo.update({
+      where: {
+        id,
+      },
+      data: {
+        email: username,
+      },
+    });
+
+    console.log(res);
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+const Up: UpdateParams = {
+  username: "suryakarna@gmail.com",
+};
+
+updateUser(19, Up);
