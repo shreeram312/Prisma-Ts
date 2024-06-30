@@ -1,4 +1,6 @@
 import { PrismaClient } from "@prisma/client";
+import { userInfo } from "os";
+import { emit } from "process";
 
 const prisma = new PrismaClient();
 
@@ -55,4 +57,19 @@ const Up: UpdateParams = {
   username: "suryakarna@gmail.com",
 };
 
-updateUser(19, Up);
+// updateUser(19, Up);
+
+async function getUser(username: string) {
+  try {
+    const res = await prisma.userInfo.findFirst({
+      where: {
+        email: username,
+      },
+    });
+    console.log(res);
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+getUser("shreeram@gmail.com");

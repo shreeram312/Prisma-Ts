@@ -55,4 +55,20 @@ function updateUser(id_1, _a) {
 const Up = {
     username: "suryakarna@gmail.com",
 };
-updateUser(19, Up);
+// updateUser(19, Up);
+function getUser(username) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const res = yield prisma.userInfo.findFirst({
+                where: {
+                    email: username,
+                },
+            });
+            console.log(res);
+        }
+        catch (e) {
+            console.log(e);
+        }
+    });
+}
+getUser("shreeram@gmail.com");
