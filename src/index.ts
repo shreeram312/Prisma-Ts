@@ -72,4 +72,4 @@ async function getUser(username: string) {
   }
 }
 
-getUser("shreeram@gmail.com");
+getUser("shreeteja@gmail.com");
