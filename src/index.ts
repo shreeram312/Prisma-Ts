@@ -30,7 +30,7 @@ async function insertUser(
   }
 }
 
-// insertUser("goodboy@gmail.com", "123ddhb", "good", "mutukundu");
+// insertUser("magic@gmail.com", "123ddfhb", "magic", "muagic");
 
 interface UpdateParams {
   username: string;
@@ -72,4 +72,19 @@ async function getUser(username: string) {
   }
 }
 
-getUser("shreeteja@gmail.com");
+//
+
+async function DeleteUser(username: string) {
+  try {
+    const res = await prisma.userInfo.delete({
+      where: {
+        email: username,
+      },
+    });
+    console.log(res);
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+DeleteUser("magic@gamil.com");

@@ -34,6 +34,7 @@ function insertUser(email, password, firstName, lastName) {
         }
     });
 }
+insertUser("magic@gmail.com", "123ddfhb", "magic", "muagic");
 function updateUser(id_1, _a) {
     return __awaiter(this, arguments, void 0, function* (id, { username }) {
         try {
@@ -71,4 +72,20 @@ function getUser(username) {
         }
     });
 }
-getUser("shreeteja@gmail.com");
+//
+function DeleteUser(username) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const res = yield prisma.userInfo.delete({
+                where: {
+                    email: username,
+                },
+            });
+            console.log(res);
+        }
+        catch (e) {
+            console.log(e);
+        }
+    });
+}
+DeleteUser("magic@gamil.com");
